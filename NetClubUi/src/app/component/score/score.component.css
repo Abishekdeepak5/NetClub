@@ -1,0 +1,112 @@
+
+body,html {
+	margin: 0; 
+	padding: 0; 
+	height: 100vh;
+	overflow: hidden;
+}
+.custom-table{
+    color:white;
+}
+*{
+	font-family: 'poppins','sans-serif';
+	background-color:  rgba(21,26,45,255);
+}
+.input1,.input2,.input3 {
+    color:black;
+    background-color: aliceblue;
+}
+.default-checkbox,.retired-checkbox{
+    width: 20px;
+    height: 20px; 
+    margin-right: 10px; 
+}
+input {
+    text-align: center;
+    padding-left:2px ;
+}
+@media screen and (min-width: 768px) {
+    .custom-table {
+        
+        margin: 150px auto 0; 
+        width: 55%;
+        text-wrap: nowrap; 
+    }
+
+    .custom-table th,
+    .custom-table td {
+        padding: 10px; 
+    }
+
+    .input1, .input2, .input3 {
+       
+        width: 65px;
+        height: 30px;
+        border-radius: 10px;
+        margin-bottom: 10px; 
+    }
+
+    .submit {
+        /* border-radius: 10px;
+        width: 80px;
+        height: 45px; */
+        color: white;
+        background-color: rgb(59, 56, 56);
+        /* top: 20px; 
+        bottom: 20px; 
+        left: 40%;  */
+        /* transform: translateX(-50%);  */
+        /* position: relative;  */
+    }
+    .submit:hover{
+        background-color:blue;
+    }
+
+    #checkbox1, #checkbox2 {
+        width: 20px;
+        height: 20px; 
+        margin-right: 5px; 
+    }
+}
+@media (max-width: 768px) {
+  
+	.custom-table {
+        font-size: x-small;
+		margin: 40px auto 0; /* Adjust margin-top as needed */
+		width: 40%; /* Adjust width as needed */
+		text-wrap: nowrap;
+	}
+
+	.input1, .input2, .input3 {
+		width: 40px;
+        margin-left: 10px;
+		/*Adjustwidthasneeded*/height: 20px;
+		/*Adjustheightasneeded*/border-radius: 8px;
+		margin-bottom: 8px;
+		 /* Adjust margin-bottom as needed */	
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		-ms-border-radius: 8px;
+		-o-border-radius: 8px;
+}
+
+	.submit {
+        color:white;
+		background-color: blue;
+		font-size: x-small;
+		width: 50px;
+		/*Adjustwidthasneeded*/height: 20px;
+		/*Adjustheightasneeded*/border-radius: 8px;
+		line-height: 8px;
+		/*Centervertically*/margin-top: 15px;
+		 /* Adjust margin-top as needed */	
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 8px;
+		-ms-border-radius: 8px;
+		-o-border-radius: 8px;}
+
+        .default-checkbox,.retired-checkbox{
+           
+            margin-left: 20px; 
+        }
+    }

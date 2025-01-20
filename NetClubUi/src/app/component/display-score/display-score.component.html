@@ -1,0 +1,51 @@
+<body>
+<div class="container">
+    <table id="displayTable">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Set 1</th>
+          <th>Set 2</th>
+          <th>Set 3</th>
+          <th>Default</th>
+          <th>Retired</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table body will be generated dynamically using JavaScript -->
+      </tbody>
+    </table>
+    <div class="scores">
+      <button (click)="calculateScore()" class="btn">Calculate Score</button><br><br>
+      <div *ngIf="team1SetsWon || team2SetsWon">
+        Team 1 Score: {{ team1SetsWon }}<br><br>
+        Team 2 Score: {{ team2SetsWon }}<br><br>
+        Team 1 Rating: {{ team1Rating | number:'1.1-2' }}<br>
+        Team 2 Rating: {{ team2Rating | number:'1.1-2' }}<br>
+      </div> 
+    </div>   
+</div>
+    
+    <script>
+    // Retrieve data from localStorage
+    var storedData = localStorage.getItem('tableData');
+    if (storedData) {
+      var data = JSON.parse(storedData);
+      
+      // Generate table rows dynamically
+      var tableBody = document.getElementById("displayTable").getElementsByTagName("tbody")[0];
+      data.forEach(function(rowData) {
+        var row = tableBody.insertRow();
+        row.insertCell().textContent = rowData.team;
+        row.insertCell().textContent = rowData.set1;
+        row.insertCell().textContent = rowData.set2;
+        row.insertCell().textContent = rowData.set3;
+        row.insertCell().textContent = rowData.default ? "Yes" : "No";
+        row.insertCell().textContent = rowData.retired ? "Yes" : "No";
+      });
+    } else {
+      console.log('No data found in localStorage');
+    }
+    </script>
+    
+    </body>

@@ -1,0 +1,320 @@
+	.swal2-loading-background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+		z-index: 2000; /* Ensure it's above other elements */
+	}
+	
+	.swal2-loading-spinner {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 40px;
+		height: 40px;
+		border: 4px solid #f3f3f3; /* Light grey border */
+		border-top: 4px solid #3498db; /* Blue border on top */
+		border-radius: 50%;
+		animation: spin 1s linear infinite; /* Spin animation */
+	}
+	
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+	
+	*{
+		font-family: 'poppins','sans-serif';
+		background-color:  rgba(21,26,45,255);
+	}
+	.menu-container {
+		display: none;
+	}
+	
+	.btn-container, .btn1-container {
+		position: absolute;
+		top: 60px;
+		right: 0;
+		margin-top: 10px; 
+	}
+	.create-court-btn {
+		position: absolute;
+		top: 63px;
+		left:30%;
+		margin-top: 10px; 
+		color:white;
+	}
+
+	.btn, .btn1 ,.create-court-btn{
+		border: 2px solid black;
+		font-size: 13px;
+		padding: 5px 10px;
+		transition: color 0.3s;
+	}
+	
+	.btn {
+		margin-right: 120px;
+		color: white; 
+	}
+	
+	.btn1 {
+		margin-right: 20px;
+		color: white;
+	}
+	
+	.btn:hover, .btn1:hover {
+		color: blue; 
+	}
+	body{
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		padding-top: 10px;
+	}
+	.fliter{
+		color: white;
+	}
+	table{
+		width: 98%;
+		margin: auto;
+		/* padding: 20px; */
+	}
+	thead tr{
+		color: white;
+		width: 100%;
+		background-color: bisque;
+		/* rgba(21,26,45,255) */
+		border-radius: 5px;
+		/* margin: 30px; */
+	}
+	tr{
+		border: 5px solid rgba(21,26,45,255);
+	}
+	th{
+		background-color: rgba(27,31,58,255);
+		padding:2px 5px ;
+		font-size: 14px;
+		font-weight: 550;
+		text-align: center;
+	}
+	td{
+		background-color: rgba(31,41,66,255) ;
+		color: white;
+		font-size: 12px; 
+		padding: 5px 0px 5px 2px;	
+		text-align: center;
+	}
+	.Search{
+		margin-left:2%;
+		border-radius: 6px;
+		padding-left: 5px;
+		width: 45%;
+		min-width: 200px;
+		background-color:rgba(31,41,66,255)  ;
+		font-size: 12px;
+		color: white;
+		border: none;
+		outline: none;
+	}
+	.create-court-btn:hover{
+		opacity: 1;
+		color: blue;
+	
+	}
+	.create-court-btn{
+		color:white;
+		margin: 1px black ;
+		font-size: 13px;
+		border:2px solid black;
+	    text-align:center;
+	}
+
+	.popContainer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1000;
+	}
+	.poplist {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: rgba(27,31,58,255);
+		color: white;
+		padding: 20px;
+		border-radius: 8px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		z-index: 1001;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: fit-content;
+	}
+	.poplist p{
+		background-color: inherit;
+	}
+	.poplist button{
+		color: white;
+	}
+	.poplist div{
+		background-color: inherit;
+	}
+	.small-screen-sidebar-visible .sidenav {
+		display: block; 
+	}
+	@media screen and (max-width: 768px) {
+		.btn-container, .btn1-container {
+			position: static;
+			top: 5px;
+			right: 0;
+			margin-top: 10px; 
+		}
+		th{
+			font-size: x-small;
+		}
+		td{
+			font-size: x-small;
+		}
+		.create-court-btn {
+			position: absolute; /* Position absolutely */
+			 /* Adjust the top position */
+			left: 50%; /* Position it horizontally in the middle */
+			transform: translateX(-50%); /* Center it horizontally */
+			margin-top: 10px; 
+			color: white;
+		  }
+		
+		.btn, .btn1 ,.create-court-btn{
+			border: 2px solid black;
+			font-size: 13px;
+			padding: 5px 10px;
+			transition: color 0.3s;
+		}
+		
+		.btn {
+			margin-right: 120px;
+			color: white; 
+		}
+		
+		.btn1 {
+			margin-right: 20px;
+			color: white;
+		}
+		
+		body {
+			display: block; 
+			text-align: center;
+			margin: 0; 
+			padding: 0; 
+		}
+		.btn-container, .btn1-container {
+			position: absolute;
+			right: 1px;
+			top:5px;
+		}
+		.btn {
+		margin-right: 70px;
+		color: white; 
+	    }
+	
+	.btn1 {
+		margin-right: 10px;
+		color: white;
+	}
+		.btn, .btn1 ,.create-court-btn{
+			border: 2px solid black;
+			font-size: 9px;
+			padding: 2px 5px;
+			transition: color 0.3s;
+		}
+		.fliter {
+			width: 30%; /* Adjust the width as needed */
+			position: absolute; /* Position it absolutely */
+			top: 22px; /* Adjust the top position */
+			left: 10px; /* Adjust the left position */
+			font-size: 10px; /* Adjust font size if needed */
+		  }
+		.main-container {
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			position: absolute;
+			top: 80px;
+			left: 50%;
+			transform: translateX(-50%);
+			-webkit-transform: translateX(-50%);
+			-moz-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+	}
+		
+		table {
+			width: 100%; 
+			max-width: 100%; 
+			margin-bottom: 10px; 
+		}
+		}
+		@media (max-width: 425px) {
+		
+			body {
+				display: block; 
+				text-align: center;
+				margin: 0; 
+				padding: 0; 
+			}
+			
+			.main-container {
+				width: 100%; 
+				padding: 10px; 
+				box-sizing: border-box; 
+				position: absolute;
+				top: 80px; 
+				left: 50%; 
+				transform: translateX(-50%); 
+			}
+			
+			table {
+				width: 100%; 
+				max-width: 100%; 
+				margin-bottom: 10px; 
+			}
+			}
+			@media (max-width: 600px) {
+				.create-court-btn{
+					top:9px;
+					left:140px;
+}
+				body {
+					display: block; 
+					text-align: center;
+					margin: 0; 
+					padding: 0; 
+				}
+				
+				.main-container {
+					width: 100%; 
+					padding: 10px; 
+					box-sizing: border-box; 
+					position: absolute;
+					top: 80px; 
+					left: 50%; 
+					transform: translateX(-50%); 
+				}
+				
+				table {
+					width: 100%; 
+					max-width: 100%; 
+					margin-bottom: 10px; 
+				}
+				}
+				
+
+		
+
+			

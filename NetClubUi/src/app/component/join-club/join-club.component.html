@@ -1,0 +1,26 @@
+
+<body>
+    <app-sidenavbar (selectedNavItemEvent)="selectedNavItem($event)"></app-sidenavbar>
+    <div class="Container">
+        <!-- (ngSubmit)="postClub()" -->
+        <form (ngSubmit)="joinClub()">
+            <p-card header="Join Club" class="Container1">
+                <!-- <div class="field">
+                    <label for="clubid">Club Id</label>
+                    <input id="clubid" pInputText class="w-full input" type="text" name="clubid" placeholder="Enter your clubid"
+                       [(ngModel)]="ClubId" required>
+                </div> -->
+                <div class="field">
+                    <label for="clublabel">Club Label</label>
+                    <input id="clublabel" pInputText class="w-full input" type="text" name="clublabel" placeholder="Enter your clubcode"
+                       [(ngModel)]="clublabel" required>
+                </div>
+                <br>
+                <div class="btn">
+                    <button class="registerBtn" type="submit">Join Club</button>
+                    <button class="cancel" (click)="onCancel()">Cancel</button>
+                </div>
+            </p-card>
+        </form>
+    </div>
+</body>

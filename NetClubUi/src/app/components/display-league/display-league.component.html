@@ -1,0 +1,56 @@
+<body>
+  <div class="sidenav">
+    <h2>Home</h2>
+    <a (click)="showMyClubsContent()">My Clubs</a>
+    <a (click)="showLeagueContent()">League</a>
+    <a (click)="showTennisContent()">Tennis</a>
+    <a (click)="showRegisteredContent()">Registered Clubs</a>
+  </div>
+  <div class="main">
+    <ng-container *ngIf="selectedNavItem === 'myClubs'">
+      <table class="custom-table" id="myTable">
+        <thead>
+          <tr data-id="1">
+            <th>Club</th>
+            <th>Total Leagues</th>
+            <th>Teams</th>
+            <th>Active Leagues</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let club of myClubs" data-id="2" (click)="selectClub(club)">
+            <td>{{ club.name }}</td>
+            <td>{{ club.totalLeagues}}</td>
+            <td>{{ club.teams}}</td>
+            <td>{{ club.activeLeagues }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-container *ngIf="selectedNavItem === 'League'">
+      <table class="custom-table" id="myTable">
+        <thead>
+          <tr>
+            <th>Club Name</th>
+            <th>League Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Registration Start</th>
+            <th>Registration End</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ clubName }}</td>
+            <td>{{ leagueName }}</td>
+            <td>{{ startDate | date }}</td>
+            <td>{{ endDate | date }}</td>
+            <td>{{ regStartDate | date }}</td>
+            <td>{{ regEndDate | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  </div>
+
+  </body>

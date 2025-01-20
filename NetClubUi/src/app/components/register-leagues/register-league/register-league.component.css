@@ -1,0 +1,275 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(21, 26, 45, 255); /* Dark blue background */
+    color: white; /* Set default text color to white */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.sidenav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(21, 26, 45, 255);
+    padding: 10px 20px;
+}
+
+.text-light {
+    color: white; /* Color for text elements in navbar */
+}
+
+/* Navigation Buttons */
+.navBtn, .nav-link {
+    background-color: rgba(31, 41, 66, 255); /* Darker blue for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Adjust padding for comfort */
+    margin: 5px; /* Add spacing between buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navBtn:hover, .nav-link:hover {
+    background-color: rgba(41, 51, 76, 255); /* Darker shade on hover */
+}
+
+/* Table Styles */
+/* Table Styles */
+.custom-table {
+    width: 100%; /* Set table width to 100% */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    color: white; /* Set text color for table */
+}
+
+.custom-table thead tr {
+    background-color: rgba(21, 26, 45, 255); /* Dark blue for header background */
+    border-bottom: 1px solid #ddd; /* Add a thin border below header */
+    text-align: left; /* Align table content left */
+}
+
+.custom-table tbody tr {
+    border: 1px solid #ddd; /* Border for table rows */
+}
+table,thead{
+ border: 1px dotted white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 10px; /* Adjust padding for readability */
+    text-align: left; /* Align table data left */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Show ellipsis for long text */
+}
+
+/* Buttons Below Club Info */
+.clubNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.leaguejoinBtn btn text-light{
+    color: white;
+    background-color: darkgreen;
+}
+
+/* Apply same color scheme to buttons */
+.clubNav .btn {
+    background-color: #28a745; /* Green color for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Adjust padding for comfort */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clubNav .btn:hover {
+    background-color: #218838; /* Darker shade on hover */
+}
+
+/* Add margin between buttons */
+.clubNav .btn {
+    margin-right: 10px; /* Adjust as needed */
+}
+
+/* Club Invite Pop-up */
+.popContainer {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.input-group {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.input-group .form-control {
+    width: 100%; /* Adjust width as needed */
+    max-width: 300px; /* Limit width for smaller screens */
+    padding: 10px; /* Adjust padding */
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px; /* Add space between input and button */
+}
+
+.input-group .btn {
+    flex-shrink: 0; /* Prevent button from shrinking */
+    background-color: #007bff; /* Blue background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.leaguejoinBtn.btn {
+    padding: 5px 6px; /* Adjust button padding */
+    font-size: 7px; /* Adjust font size */
+}
+
+.input-group .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.searchList {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+    margin: 10px 0;
+}
+
+.searchList li {
+    margin-bottom: 5px; /* Add space between list items */
+}
+
+.searchList li .searchBtn {
+    background-color: #28a745; /* Green background color for invite button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.searchList li .searchBtn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Media Query for devices with width up to 800px */
+@media screen and (max-width: 800px) {
+    .custom-table {
+        margin: auto; /* Center the table */
+    }
+}
+
+/* Media Query for devices with width up to 425px */
+@media screen and (max-width: 430px) {
+
+    .clubNav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        left:0;
+    }
+    .navbtn{
+        display: flex;
+        justify-content: space-between;
+        float: right;
+        margin-right: 4px;
+    }
+    .clubroute{
+        display: flex;
+        justify-content: space-between;
+        float: left;
+        margin-right: 4px;
+    }
+
+    .clubNav .btn {
+        width: 100%; /* Adjust button width to fit two buttons per line */
+        margin: 3px; /* Add margin around buttons */
+        font-size: 6px;
+        display: flex;
+        justify-content: space-between;
+    }
+     
+    .joinCell {
+        padding: 8px; /* Adjust padding for cells */
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+
+    table,thead,tbody{
+        border: 1px solid white;
+         border-collapse: collapse;
+         width: 90%;
+       }
+    
+    .custom-table {
+        margin: auto; /* Center the table */
+		padding: 7px; /* Adjust padding for readability and create gap */
+       text-align: left; /* Align table data left */
+       width: auto; /* Reset width to auto */
+       width: 50%;
+       font-size: 6px;
+    }
+    table,thead,tbody{
+        width: 100%;
+        font-size: 7px;
+   }
+   .input-group {
+    flex-direction: row; 
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .input-group .form-control {
+    width: 100%; /* Full width for the input */
+    margin-right: 10px;
+    margin-bottom: 10px; /* Add bottom margin for spacing */
+  }
+
+  .input-group .btn {
+    width: 50%; /* Full width for the button */
+    min-width: 10px; /* Reset minimum width */
+    font-size: 7px;
+  }
+
+
+}
+
+/* Media Query for devices with width up to 360px */
+@media screen and (max-width: 360px) {
+    .clubNav .btn {
+        margin-right: 0; /* Remove right margin */
+    }
+    .clubNav{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .custom-table th,
+    .custom-table td {
+        font-size: 6px; /* Decrease font size for small screens */
+    }
+    table,thead{
+         width: 100%;
+         font-size: 7px;
+    }
+    
+}

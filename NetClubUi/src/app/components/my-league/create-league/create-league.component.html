@@ -1,0 +1,128 @@
+<body style="background-color: rgb(21, 26, 45);">
+    <div class="Container">
+        <form (ngSubmit)="postLeague()">
+            <p-card header="Create League" class="pcard">
+               <div style="display: flex;">
+                <h3>Club: </h3>
+                <h3>{{clubDetail?.club_name}}</h3>
+               </div>
+               <br>
+                <!-- League Name -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="leaguename" pInputText class="w-full" type="text" name="leaguename"  [(ngModel)]="League.name"
+                            required>
+                        <span class="placeholder-text">League name</span>
+                    </div>
+                </div>
+                <!-- Schedule Type -->
+                <div class="field">
+                    <legend class="legend">Schedule Type</legend>
+                    <div class="input-container">
+                        <select name="scheduletype" id="" style="color: black;" [(ngModel)]="League.schedule_type_id">
+                            <option value=1>Weekly any day</option>
+                            <option value=2>Weekly fixed day</option>
+                            <option value=3>4 Day Playoffs </option>
+                        </select>
+                        <span class="placeholder-text"></span>
+                    </div>
+                </div>
+                <!-- Start Date -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="startDate" pInputText class="w-full" type="datetime-local" name="startDate"
+                             [(ngModel)]="League.start_date" required>
+                        <span class="placeholder-text">Start Date</span>
+                    </div>
+                </div>
+
+                <!-- End Date -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="EndDate" pInputText class="w-full" type="datetime-local" name="EndDate"
+                             [(ngModel)]="League.end_date" required>
+                        <span class="placeholder-text">End Date</span>
+                    </div>
+                </div>
+                <br>
+                <!-- League Type -->
+                <div class="field">
+                    <legend class="legend">League Type</legend>
+                    <div class="input-container">
+                        <select name="leaguetype" id="" style="color: black;" [(ngModel)]="League.league_type_id">
+                            <option value=1>Mens Singles</option>
+                            <option value=2>Womens Singles</option>
+                            <option value=3>Mens Doubles</option>
+                            <option value=4>Womens Doubles</option>
+                            <option value=5>Mixed Doubles</option>
+                            <option value=6>Mens Team</option>
+                            <option value=7>Womens Team</option>
+                            <option value=8>Mixed Team</option>
+                        </select>
+                        <span class="placeholder-text"></span>
+                    </div>
+                </div>
+
+                <!-- Registration Start Date -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="regStartDate" pInputText class="w-full" type="datetime-local" name="regStartDate"
+                             [(ngModel)]="League.registration_start_date" required>
+                        <span class="placeholder-text">Registration Start Date</span>
+                    </div>
+                </div>
+
+                <!-- Registration End Date -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="regEndDate" pInputText class="w-full" type="datetime-local" name="regEndDate"
+                             [(ngModel)]="League.registration_end_date" required>
+                        <span class="placeholder-text">Registration End Date</span>
+                    </div>
+                </div>
+
+                <!-- Playoff Start Date -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="playoffStartDate" pInputText class="w-full" type="datetime-local" name="playoffStartDate"
+                             [(ngModel)]="League.playoff_start_date" required>
+                        <span class="placeholder-text">Playoff Start Date</span>
+                    </div>
+                </div>
+
+                <!-- Playoff End Date -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="playoffEndDate" pInputText class="w-full" type="datetime-local" name="playoffEndDate"
+                             [(ngModel)]="League.playoff_end_date" required>
+                        <span class="placeholder-text">Playoff End Date</span>
+                    </div>
+                </div>
+
+                <!-- Playoff Number of Teams -->
+                <div class="field">
+                    <legend class="legend"></legend>
+                    <div class="input-container">
+                        <input id="playoffteam" pInputText class="w-full" type="number" name="playoffteam"
+                             [(ngModel)]="League.number_of_teams_playoffs" required>
+                        <span class="placeholder-text">Playoff No.of Teams</span>
+                    </div>
+                </div>
+
+                <br>
+                <div class="submit">
+                    <input type="submit" value="Create League" class="registerBtn">
+                    <button class="registerBtn" (click)="onCancel()">Cancel</button>
+                </div>
+                
+            </p-card>
+        </form>
+    </div>
+</body>

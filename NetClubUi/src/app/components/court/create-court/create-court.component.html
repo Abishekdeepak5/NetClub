@@ -1,0 +1,47 @@
+
+<body style="background-color: black;">
+    <div class="Container">
+        <!-- (ngSubmit)="postClub()" -->
+        <form (ngSubmit)="createCourt()">
+            <p-card header="Create Court" [style]="{width: '430px'}" class="">
+                <div class="field">
+                    <label for="courtname">Court Name</label>
+                    <input id="courtname" pInputText class="w-full input" type="text" name="courtname" placeholder="Enter your name"
+                       [(ngModel)]="court.court_name" required>
+                </div>
+
+                <div class="field">
+                    <label for="courtaddress">Address1</label>
+                    <input id="courtaddress" pInputText class="w-full input" type="text" name="courtaddress" placeholder="Enter your address"
+                       [(ngModel)]="court.address1" required>
+                </div>
+                <div class="field">
+                    <label for="courtaddress1">Address2</label>
+                    <input id="courtaddress1" pInputText class="w-full input" type="text" name="courtaddress1" placeholder="Enter your address"
+                       [(ngModel)]="court.address2" required>
+                </div>
+
+                <div class="field">
+                    <label for="courtcity">City</label>
+                    <input id="courtcity" pInputText class="w-full input" type="text" name="courtcity" placeholder="Enter your city"
+                       [(ngModel)]="court.city" required>
+                </div>
+
+                <div class="field">
+                    <label for="courtstate">State</label>
+                    <input id="courtstate" pInputText class="w-full input" type="text" name="courtstate" placeholder="Enter your state"
+                       [(ngModel)]="court.state" required>
+                </div>
+
+                <div class="field">
+                    <label for="courtzip">ZIP</label>
+                    <input id="courtzip" pInputText class="w-full input" type="text" name="courtzip" placeholder="Enter your zip"
+                       [(ngModel)]="court.zip" required>
+                </div>
+
+                <br>
+                <input type="submit" value="Create Court" class="registerBtn">
+            </p-card>
+        </form>
+    </div>
+</body>

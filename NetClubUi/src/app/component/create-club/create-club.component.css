@@ -1,0 +1,189 @@
+.Welcome {
+    color: white;
+}
+
+body, html {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: rgba(21, 26, 45, 255);
+    width: 100%;
+}
+
+.menu-container {
+    display: none;
+}
+
+.Container1 {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    top: 70%;
+    left: 80%;
+    transform: translate(-60%, -60%);
+    transition: transform 0.3s ease-in-out;
+    height: 100vh;
+    -webkit-transform: translate(-60%, -60%);
+    -moz-transform: translate(-60%, -60%);
+    -ms-transform: translate(-60%, -60%);
+    -o-transform: translate(-60%, -60%);
+}
+
+.Container {
+    border-collapse: collapse;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    margin-top: 10px;
+    top: 45%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-in-out;
+    height: 100vh;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+}
+
+
+.registerBtn {
+  /* Adjust width as needed */
+    font-size: 1em;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.registerBtn:disabled {
+    background-color: #d1d1d1;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.label {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+}
+.field {
+    margin-bottom: 0.5rem;
+    font-size: 16px; /* Adjust font size as needed */
+    width: 100%; /* Full width */
+}
+
+.field input {
+    width: 100%; /* Full width */
+    padding: 5px; /* Adjust padding as needed */
+    border: 1px solid black; /* Black border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: white; /* Background color */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.small-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.loginLink {
+    color: darkcyan;
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 3px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+table {
+    border-collapse: collapse;
+    width: 600px; /* Adjust width as needed */
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 320px) {
+    .Container1 {
+        top: 60%;
+        left: 90%;
+        border-radius: 0;
+    }
+    .field {
+        font-size: 12px;
+        width: 60%;
+    }
+    .Container {
+        top: 45%;
+        left: 50%;
+        width: 90%;
+    }
+    .registerBtn {
+        font-size: 1em;
+        padding: 5px 10px;
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .registerBtn{
+        width:100%;
+    }
+}
+@media screen and (max-width: 2590px) {
+    .registerBtn{
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .Container1 {
+        top: 60%;
+        left: 90%;
+        border-radius: 0;
+    }
+    .field {
+        font-size: 12px;
+        width: 60%;
+    }
+    .Container {
+        top: 45%;
+        left: 50%;
+        width: 90%;
+    }
+    .registerBtn {
+        font-size: 1em;
+        padding: 5px 10px;
+        width: 65%;
+    }
+}

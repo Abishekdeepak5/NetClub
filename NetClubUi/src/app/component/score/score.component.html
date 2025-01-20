@@ -1,0 +1,65 @@
+<body>
+        <app-sidenavbar (selectedNavItemEvent)="selectedNavItem($event)">
+        </app-sidenavbar>
+        <ng-container class="ng-container">
+                <!-- <div class="text-light d-flex" style="text-align: center;">
+                        <div>{{team1name}}</div>
+                        <span class="px-3">Vs</span>
+                        <div>{{team2name}}</div>
+                </div> -->
+
+                <table class="custom-table" id="custom-table">
+                        <tr>
+                                <th></th>
+                                <th>Set 1</th>
+                                <th>Set 2</th>
+                                <th>Set 3</th>
+                                <th>Default</th>
+                                <th>Retired</th>
+                        </tr>
+                        <tr>
+                                <td>{{team1name}}</td>
+                                <td><input type="number" name="team1_set1" class="input1"
+                                                [(ngModel)]="setOne.team1Score"></td>
+                                <td><input type="number" name="team1_set2" class="input2"
+                                                [(ngModel)]="setTwo.team1Score"></td>
+                                <td><input type="number" name="team1_set3" class="input3"
+                                                [(ngModel)]="setThree.team1Score"></td>
+                                <td><input type="checkbox" name="team1_default" class="default-checkbox"
+                                                [(ngModel)]="team1Default"
+                                                (ngModelChange)="handleCheckboxChange(1, 'default')"></td>
+                                <td><input type="checkbox" name="team1_retired" class="retired-checkbox"
+                                                [(ngModel)]="team1Retired"
+                                                (ngModelChange)="handleCheckboxChange(1, 'retired')"></td>
+                        </tr>
+                        <tr>
+                                <td>{{team2name}}</td>
+                                <td><input type="number" name="team2_set1" class="input1"
+                                                [(ngModel)]="setOne.team2Score"></td>
+                                <td><input type="number" name="team2_set2" class="input2"
+                                                [(ngModel)]="setTwo.team2Score"></td>
+                                <td><input type="number" name="team2_set3" class="input3"
+                                                [(ngModel)]="setThree.team2Score"></td>
+                                <td><input type="checkbox" name="team2_default" class="default-checkbox"
+                                                [(ngModel)]="team2Default"
+                                                (ngModelChange)="handleCheckboxChange(2, 'default')"></td>
+                                <td><input type="checkbox" name="team2_retired" class="retired-checkbox"
+                                                [(ngModel)]="team2Retired"
+                                                (ngModelChange)="handleCheckboxChange(2, 'retired')"></td>
+                        </tr>
+
+                        <tr>
+                                <td colspan="6" style="text-align: center;"><button (click)="calculateScore()"
+                                                  class="btn submit">submit</button>
+                                </td>
+                                <!-- <td><button class="btn btn-primary text-light px-2 py-0" [disabled]="!isEditSetOne" (click)="setOneScore()">submit</button></td>
+                <td><button class="btn btn-primary text-light px-2 py-0" [disabled]="!isEditSetTwo" (click)="setTwoScore()">submit</button></td>
+                <td><button class="btn btn-primary text-light px-2 py-0" [disabled]="!isEditSetThree" (click)="setThreeScore()">submit</button></td> -->
+                        </tr>
+
+                </table>
+        </ng-container>
+        <!-- <div class="submitbtn">
+        <button id="submitButton" type="button" class="submit" data-toggle="button" routerLink="/display-score">Submit</button>
+    </div> -->
+</body>

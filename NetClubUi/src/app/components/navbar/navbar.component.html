@@ -1,0 +1,38 @@
+<app-loader></app-loader>
+
+<p class="navContainer">
+  <mat-toolbar class="navbar">
+    <span class="heading">AVECSAGE</span>
+    <div class="navright">
+      <div class="navicon">
+        <!-- class="search" -->
+        <mat-icon >
+          <span class="material-symbols-outlined">
+            search
+            </span>
+            <!-- class="notify" -->
+        </mat-icon>
+        <mat-icon >
+        <span class="material-symbols-outlined">
+          notifications
+          </span>
+        </mat-icon>
+      </div>
+      <button type="button" *ngIf="!isLoginPage()" class="circular-btn" data-toggle="button" (click)="toggleUserBtn()">
+        <span class="material-symbols-outlined">
+          person
+          </span></button>
+      
+    </div>
+  </mat-toolbar>
+</p>
+
+<div class="userdetails" *ngIf="isShowUser">
+  <div class="username">{{userDetails.user_name}}</div>
+  <div class="useremail">{{userDetails.email}}</div>
+  <button  type="button" class="btn1 btn1-primary bg-primary mx-1" data-toggle="button" (click)="logOut()"
+        routerLink="/login">Log Out</button>
+</div>
+
+
+<!-- <app-loader ></app-loader> -->

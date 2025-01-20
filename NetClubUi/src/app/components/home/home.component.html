@@ -1,0 +1,100 @@
+<body>
+  <app-sidenavbar (selectedNavItemEvent)="selectedNavItem($event)">
+  </app-sidenavbar>
+  <div class="main-container">
+  <div class="Container">
+    <div class="btn-container">
+      <button (click)="goToPage('createclub')" type="button" class="btn " data-toggle="button"
+        routerLink="/createclub">Create Club</button>
+    </div>
+    <div class="btn1-container">
+        <button (click)="goToPage('joinclub')" type="button" class="btn1" data-toggle="button"
+          routerLink="/joinclub">Join Club</button>
+      </div>
+    <mat-icon class="search">
+      </mat-icon>
+      <input type="text" placeholder="Search Club" class="fliter">
+    <ng-container *ngIf="selectedNav=== 'myClubs'">
+
+      <table class="custom-table" id="myTable">
+        <thead> 
+          <tr data-id="1">
+            <th style="text-align: left;">Club</th>
+            <th>Total Leagues</th>
+            <th>Teams</th>
+            <th>Active Leagues</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let club of myClubs"  (click)="selectMyClub(club)">
+            <td style="text-align: left;">{{ club.name }}</td>
+            <td>{{ club.totalLeagues}}</td>
+            <td>{{ club.teams}}</td>
+            <td>{{ club.activeLeagues }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    <ng-container *ngIf="selectedNav === 'Tennis'" class="courtTable">
+      <button class="create-court-btn" (click)="createCourt()">Create Court</button>
+    <table class="custom-table" id="myTable">
+      <thead>
+        <tr data-id="3">
+          <th>court</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+        </tr>
+      </thead>
+      <tbody data-id="4">
+        <tr *ngFor="let court of courts" (click)="createCourt()">
+          <td>{{ court.court_name }}</td>
+          <td>{{ court.city }}</td>
+          <td>{{ court.state }}</td>
+          <td>{{ court.zip }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <!-- registered clubs -->
+  <ng-container *ngIf="selectedNav === 'RegisteredClubs'">
+    <table class="custom-table" id="myTable">
+      <thead>
+        <tr data-id="5">
+          <th>Club</th>
+          <th>Join Date</th>
+          <th>Created By</th>
+        </tr>
+      </thead>
+      <tbody data-id="6">
+        <tr *ngFor="let club of regClubs" (click)="selectRegClub(club)">
+          <td>{{ club.club_name }}</td>
+          <td>{{ club.join_date }}</td>
+          <td>{{ club.created_by }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <!-- registered clubs -->
+  </div>
+<div id="detailsContainer" class="details-container"></div>
+  </div>
+
+<!-- *ngIf="showCourt" -->
+
+</body>
+
+
+
+<!-- 
+<div *ngIf="showPopUp" class="popContainer">
+  <div class="poplist">
+    <p>Join Club:{{clubcode}}</p>
+    <div>
+      <button class="btn bg-danger mr-2" (click)="closePopUp()">cancel</button>
+      <button class="btn bg-primary" (click)="joinClub(clubcode)">Ok</button>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,12 @@
+<div class="menu-icon" (click)="toggleSidebar()">
+  <span class="material-symbols-outlined">Menu</span>
+</div>
+<div class="sidenav" [style.display]="isSidebarVisible ? 'block' : 'none'">
+  <div class="btn-container">
+    <button class="btn  myclub btn-active" data-toggle="button">CLUBS</button>
+    <button class="btn  league" data-toggle="button">LEAGUES</button>
+  </div>
+  <a (click)="showMyClubsContent()" class="one">My Clubs</a>
+  <a (click)="showTennisContent()" class="two">Courts</a>
+  <a (click)="showRegisteredContent()" class="three">Registered Clubs</a>
+</div>

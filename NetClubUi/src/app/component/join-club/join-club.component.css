@@ -1,0 +1,96 @@
+/* .Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 10px;
+}   */
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: rgba(21,26,45,255);
+  width: 100%;
+}
+.sidenav {
+  width: 40%; /* Adjust the width for smaller devices */
+}
+.menu-container {
+  display: none;
+}
+.Container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+.registerBtn {
+  width: 50%;
+  background-color: #007bff; /* Replace with your desired primary color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.3em; 
+  font-weight: 600;
+  margin-right: 5%;
+}
+.registerBtn:disabled {
+  background-color: #d1d1d1; /* Replace with a suitable disabled color */
+  color: #666; /* Adjust text color for disabled state */
+  cursor: not-allowed;
+}
+.label {
+  display: block;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.small-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 0.5rem;
+  display: block;
+}
+.cancel{
+  width: 50%;
+  background-color: #007bff; /* Replace with your desired primary color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.3em; 
+  font-weight: 600;
+  margin-right: 5%;
+  
+}
+.btn{
+  display: flex;
+  justify-content: space-between;
+}
+/* Media query for 320px and 425px device width */
+@media screen and (max-width: 425px) {
+  .Container {
+      top: 50%;
+      left: 10px;
+      right:10px;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+}}

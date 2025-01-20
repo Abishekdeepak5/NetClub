@@ -1,0 +1,225 @@
+.Welcome {
+  color: white;
+}
+
+body, html {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: rgb(21, 26, 45);
+  width: 100%;
+  overflow:auto;
+}
+
+span.placeholder-text {
+  color: black;
+  font-weight: 500;
+}
+
+.Container {
+  margin-top: 10px;
+  padding: 0 10px;
+  width: 90%; /* Adjust the width as needed */
+  max-width: 450px; /* Optionally, set a max-width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.submit{
+  display: flex;
+  justify-content: space-between;
+}
+
+.field {
+  margin-bottom: 1rem;
+  font-size: 16px;
+  width: 100%;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-container input,
+.input-container select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.placeholder-text {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #aaa;
+  transition: top 0.3s, font-size 0.3s;
+  font-size: 16px;
+}
+
+.input-container input:focus + .placeholder-text,
+.input-container select:focus + .placeholder-text,
+.input-container input:not(:placeholder-shown) + .placeholder-text,
+.input-container select:not(:placeholder-shown) + .placeholder-text {
+  top: 0;
+  margin-top: -1.1rem;
+  font-size: 12px;
+}
+
+.registerBtn {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-right: 5%;
+}
+
+.registerBtn:disabled {
+  background-color: #d1d1d1;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.label {
+  display: block;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.small-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.loginLink {
+  color: darkcyan;
+  font-size: 1em;
+  font-weight: bold;
+  padding-left: 3px;
+}
+
+.legend {
+  font-size: small;
+  margin-bottom: 1em;
+}
+
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .Container {
+    margin-top: 50px;
+    padding: 0 10px;
+   
+  }
+
+  p-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .field {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-size: 0.9em;
+  }
+
+  input[type="text"],
+  input[type="datetime-local"],
+  input[type="number"],
+  select {
+    width: calc(100% - 10px);
+    padding: 0.5rem;
+    font-size: 0.9em;
+  }
+
+  .registerBtn {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    font-size: 14px;
+  }
+
+  .Container {
+    margin-top: 50px;
+    padding: 0 10px;
+  }
+
+  p-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .pcard {
+    width: 300px;
+  }
+
+  .field {
+    margin-bottom: 1rem;
+  }
+
+  .field select {
+    width: 100px;
+    font-size: 10px;
+  }
+
+  .registerBtn {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .registerBtn:disabled {
+    background-color: #d1d1d1;
+    color: #666;
+    cursor: not-allowed;
+  }
+
+  .label {
+    display: block;
+    color: #333;
+    font-size: 10px;
+    margin-bottom: 0.3rem;
+  }
+
+  .input {
+    width: 80%;
+    padding: 0.3rem;
+    border: 0;
+  }
+}

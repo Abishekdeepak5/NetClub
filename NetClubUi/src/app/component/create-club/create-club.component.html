@@ -1,0 +1,50 @@
+<body>
+<app-sidenavbar (selectedNavItemEvent)="selectedNavItem($event)">
+</app-sidenavbar>
+    <div class="Container">
+        <form (ngSubmit)="postClub()">
+            <p-card header="Create Club" [style]="{width: '430px'}" class="Container1">
+                <div class="field">
+                    <label for="clubname">Club Name</label>
+                    <input  id="clubname" pInputText class="w-full" type="text" name="clubname" placeholder="Enter your clubname" [(ngModel)]="Club.club_name"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="address1">Address 1</label>
+                    <input id="address1" pInputText class="w-full" type="text" name="address1"
+                        placeholder="Enter your address" [(ngModel)]="Club.address1" required>
+                </div>
+
+                <div class="field">
+                    <label for="address2">Address 2</label>
+                    <input id="address2" pInputText class="w-full" type="text" name="address2"
+                        placeholder="Enter your address" [(ngModel)]="Club.address2" required>
+                </div>
+
+                <div class="field">
+                    <label for="city">City</label>
+                    <input id="city" pInputText class="w-full" type="text" name="city"
+                        placeholder="Enter your city" [(ngModel)]="Club.city" required>
+                </div>
+
+                <div class="field">
+                    <label for="state">State</label>
+                    <input id="state" pInputText class="w-full" type="text" name="state"
+                        placeholder="Enter your state" [(ngModel)]="Club.state" required>
+                </div>
+
+                <div class="field">
+                    <label for="zip">zip</label>
+                    <input id="zip" pInputText class="w-full" type="text" name="zip"
+                        placeholder="Enter your Zip" [(ngModel)]="Club.zip" required>
+                </div>
+
+                <br>
+                <input type="submit" value="Create Club" class="registerBtn">
+            </p-card>
+        </form>
+    </div>
+    <!-- <p>{{welcomeMsg|json}}</p> -->
+    </body>
+    

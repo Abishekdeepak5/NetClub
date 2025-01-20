@@ -1,0 +1,84 @@
+
+<body>
+    <div class="sidenav">
+      <h2>Club: {{clubDetail?.name}}</h2>
+      <h2>Code: {{clubDetail?.club_label}}</h2>
+    </div>
+    <div class="main">
+     
+      <div class="clubNav">
+        <div class="clubroute">
+          <button class="btn" (click)="showContent('league')">League</button>
+          <button class="btn" (click)="showContent('club_members')">Members</button>
+        </div>
+        <div>
+            <button class="btn bg-success text-light"  (click)="createLeague()">Create League</button>
+          <button class="btn bg-success text-light" (click)="showInvite()">Invite</button>        
+        </div>
+      </div>
+
+      <ng-container *ngIf=" selectedNavItem==='league' ">
+      <table class="custom-table">
+        <thead>
+          <tr data-id="3">
+            <th>League</th>
+            <th>start Date</th>
+            <th>End Date</th>
+            <th>No. of Teams</th>
+            <th>Join</th>
+          </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let league of myLeagues" data-id="2" (click)="selectLeague(league)">
+                <td>{{ league.name }}</td>
+                <td>{{ league.start_date|dateformat}}</td>
+                <td>{{ league.end_date|dateformat}}</td>
+                <td>{{ league.number_of_teams}}</td>
+                <td><button class="leaguejoinBtn btn text-light" (click)=" $event.stopPropagation()">join</button></td>
+              </tr>
+              <!-- joinLeague(league); -->
+        </tbody>
+      </table>
+    </ng-container>   
+    
+    <ng-container ng-container *ngIf=" selectedNavItem==='club_members' ">
+      <table class="custom-table">
+        <thead>
+          <tr data-id="3">
+            <th>Name</th>
+            <th>Email</th>
+            <th>gender</th>
+            <th>Phone</th>
+            <th>Join Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let club_member of clubmembers" data-id="2">
+                <td>{{ club_member.first_name +' '+club_member.last_name }}</td>
+                <td>{{ club_member.email}}</td>
+                <td>{{ club_member.gender}}</td>
+                <td>{{ club_member.phone_number}}</td>
+                <td>{{ club_member.join_date|dateformat}}</td>
+              </tr>
+        </tbody>
+      </table>
+    </ng-container>   
+
+  </div>
+  <!-- *ngIf="showPopUp" -->
+  <div *ngIf="canShowInvite" class="popContainer" (click)="hideInvite()">
+    <div class="poplist" (click)="$event.stopPropagation()">
+      <!-- (input)="searchInput($event)" -->
+        <div class="input-group">
+          <div class="mr-2">
+            <input type="search" id="form1" class="form-control bg-light" placeholder="Email" [(ngModel)]="InviteEmail"/>
+          </div>
+          <button  class="btn bg-primary" (click)="ClubInvite()">Invite</button>
+        </div>
+        <!-- <ul  class="searchList">
+          <li *ngFor="let member of filterItems">{{member.email}} <button class="px-2 py-1 searchBtn" (click)="inviteLeague(member)">Invite</button></li>
+        </ul> -->
+    </div>
+  </div>
+  
+  </body>

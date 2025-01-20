@@ -1,0 +1,218 @@
+*{
+	font-family: 'poppins','sans-serif';
+	background-color:  rgba(21,26,45,255);
+}
+body{
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	padding-top: 10px;
+}
+table{
+	width: 95%;
+	margin: auto;
+	/* padding: 20px; */
+	margin-left: 13px;
+}
+thead tr{
+	text-align: center;
+	color: white;
+	background-color: bisque;
+	border-radius: 5px;
+	/* margin: 30px; */
+}
+tr{
+	border: 5px solid rgba(21,26,45,255);
+	text-align: center;
+}
+.custom-table1{
+	margin-top: 35px;
+}
+.custom-table2{
+	margin-top: 15px;
+}
+.custom-table3,.custom-table4{
+	margin-top: 15px;
+}
+th{
+	background-color: rgba(27,31,58,255);
+	padding:2px 5px ;
+	font-size: 14px;
+	font-weight: 550;
+	text-align: left;
+  }
+  
+  td {
+	background-color: rgba(31, 41, 66, 255);
+	color: white;
+	font-size: 12px;
+	padding: 8px;
+	text-align: left;
+  }
+  
+  .match-start-button {
+	font-size: 12px;
+  }
+  
+  .popContainer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+  }
+  
+  .poplist {
+	position: fixed;
+	top: 0; /* Display poplist at the top */
+	left: 0;
+	width: 100%;
+	background-color: rgba(21, 26, 45, 255);
+	color: white;
+	padding: 5px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	z-index: 1001;
+	max-height: 30vh; /* Adjust height as needed */
+	overflow-y: auto;
+  }
+  
+  .poplist .searchBtn {
+	background-color: rgba(31, 41, 66, 255);
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 5px 10px;
+	cursor: pointer;
+  }
+  
+  .poplist .input-group {
+	margin-bottom: 5px;
+  }
+  
+  .searchList li {
+	padding: 5px 10px;
+  }
+  
+  .sidenav {
+	text-align: center; /* Center the content inside sidenav */
+	margin-top: 60px; /* Adjust to create space between sidenav and poplist */
+  }
+  
+  @media screen and (max-width: 768px) {
+	.sidenav {
+	  display: none;
+	}
+  
+	.main {
+	  width: 100%;
+	  margin-top: 20px;
+	  text-align: center;
+	}
+  
+	.nav-buttons {
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	.invite {
+	  padding: 50px;
+	  display: flex;
+	  justify-content: center;
+	}
+  
+	.navBtn {
+	  margin: 5px;
+	}
+  
+	table {
+	  display: block;
+	  margin: auto;
+	  width: calc(100% - 40px); /* Adjust width for smaller screens */
+	}
+  }
+  
+.poplist div{
+	background-color: inherit;
+}
+
+.searchBox{
+	background-color: aliceblue;
+}
+.searchList{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.searchList li{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	background-color:  rgba(31,41,66,255);
+	margin-bottom: 0.5em;
+	padding: 0.2em 2em;
+}
+.searchBtn{
+	border-radius: 4px;
+}
+.tablecell{
+	display: flex;
+	flex-direction: column;
+	background-color: inherit;
+}
+.tablecell span,.tablecell div{
+	background-color: inherit;
+}
+.scoreDetail{
+	font-size: small;
+}
+.scoreTitle{
+	font-size: smaller;
+}
+.btn1,.btn2,.btn3,.btn4,.btn5 {
+	margin-top: 30px;
+	background-color: rgba(31, 41, 66, 255); /* Darker blue for buttons */
+	color: white;
+	border: none;
+	border-radius: 5px; /* Rounded corners */
+	padding: 5px 5px; /* Adjust padding for comfort */
+	cursor: pointer;
+	margin-right: 1px;
+	transition: background-color 0.3s ease;
+	margin-left: 18px;
+	margin-bottom: 0.3rem;
+  }
+  .btn:hover {
+	background-color: rgba(41, 51, 76, 255); /* Darker shade on hover */
+  }
+.btn5{
+	margin-right: 20px;
+}
+.navBtn{
+	background-color: rgba(31,41,66,255);
+	color: white;
+	margin-right:1em ;
+}
+.navButtons{
+	
+	display:flex;
+	justify-content: space-between;
+	/* margin: 4 5%; */
+}
+.score {
+	border-radius: 10px;
+	width: 100px;
+	height: 35px;
+	color: white;
+	background-color:#198754;
+	top: 2px; 
+	bottom: 20px; 
+	left: 94%; 
+	text-wrap: nowrap;
+	transform: translateX(-50%); 
+	position: relative; 
+}
+
+

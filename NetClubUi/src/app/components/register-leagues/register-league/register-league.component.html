@@ -1,0 +1,165 @@
+<body>
+  <!-- [items]="['Item 1', 'Item 2', 'Item 3', 'Item 4']"  -->
+  <app-court-dropdown *ngIf="showCourt" (itemSelected)="onItemSelected($event)"></app-court-dropdown>
+
+  <div class="sidenav">
+    <h2 class="text-light">Club: {{clubDetail?.club_name}}</h2>
+    <h2 class="text-light">Label: {{clubDetail?.club_label}}</h2>
+  </div>
+  <br><br>
+  <div class="main">
+    <div class="clubNav">
+      <div class="clubroute">
+        <!-- (click)="showContent('league')" -->
+        <button class="btn" (click)="showLeagues()">League</button>
+        <button class="btn" (click)="showMember()">Members</button>
+        <button class="btn" (click)="showStandings()">Standings</button>
+      </div>
+      <div class="navbtn">
+        <button *ngIf="isMyClub" class="btn bg-success text-light" (click)="createLeague()">Create League</button>
+        <button class="btn bg-success text-light" (click)="showInvite()">Invite</button>
+      </div>
+    </div>
+    <br><br>
+    <!-- <button mat-button (click)="openDialog()">Open Dropdown Dialog</button> -->
+    <!-- <div class="share-btn">
+    <share-buttons [theme]="'modern-dark'"
+[include]="['whatsapp','facebook','email']" 
+[show]="2"
+[url]="'https://twitter.com/'"
+[title]="'Hello world '"
+[description]="'Hello'"
+[image]="'https://imaxfund.com/wp-content/uploads/2022/08/istockphoto-1288486418-612x612-1.jpg'"
+[autoSetMeta]="false"
+></share-buttons>
+<button (click)="shareOnWhatsApp()">Hello</button>
+</div>
+<button mat-fab shareButton="whatsapp"
+              #twtBtn="shareButton"
+              [style.backgroundColor]="twtBtn?.color">Hello
+</button> -->
+    <ng-container *ngIf="!canShowMember && !canShowStandings">
+      <!-- <div *ngIf="showCourt" class="courtContainer">
+        <div class="courtlist">
+          <table class="custom-table courttable">
+            <thead>
+              <tr data-id="3">
+                <th>Court name</th>
+                <th>Zip</th>
+                <th>select</th>
+              </tr>
+            </thead>
+            <br><br>
+            <tbody>
+              <tr *ngFor="let court of courts" data-id="2">
+                <td>{{ court.court_name}}</td>
+                <td>{{ court.zip}}</td>
+                <td><button class="joinBtn" (click)="selectCourt(court);  $event.stopPropagation()">select</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="bg-danger" (click)="closeCourt()">cancel</button>
+        </div>
+      </div> -->
+      <table class="custom-table1">
+        <thead>
+          <tr data-id="3">
+            <th>League</th>
+            <th>start Date</th>
+            <th>End Date</th>
+            <th>No. of Teams</th>
+            <th>Type</th>
+            <th>Join</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let league of regLeagues" data-id="2" (click)="selectLeague(league)">
+            <td>{{ league.name }}</td>
+            <td>{{ league.start_date|dateformat}}</td>
+            <td>{{ league.end_date|dateformat}}</td>
+            <td>{{ league.number_of_teams}}</td>
+            <td>{{league.league_type_id|leagueType}}</td>
+            <td *ngIf="league.is_join; else elseBlock" >Joined</td>
+            <ng-template #elseBlock>
+              <td class="joinCell"><button style="background-color:rgb(9, 133, 204);" class="leaguejoinBtn btn text-light" (click)="joinLeague(league); $event.stopPropagation()">join</button></td>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container> 
+    <ng-container ng-container *ngIf="canShowMember">
+      <table class="custom-table1">
+        <thead>
+          <tr data-id="3">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Join Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let club_member of clubmembers" data-id="2">
+            <td>{{ club_member.first_name +' '+club_member.last_name }}</td>
+            <td>{{ club_member.email}}</td>
+            <td>{{ club_member.gender}}</td>
+            <td>{{ club_member.phone_number}}</td>
+            <td>{{ club_member.join_date|dateformat}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container> 
+    <ng-container ng-container *ngIf="canShowStandings && !canShowMember">
+      <table class="custom-table4">
+        <thead>
+          <tr data-id="3">
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let club_member of clubmembers" data-id="2">
+            <td>{{ club_member.first_name +' '+club_member.last_name }}</td>
+            <td>{{ club_member.gender}}</td>
+            <td>{{ club_member.phone_number}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container> 
+  </div>
+  
+    <!-- Club Invite -->
+    <div *ngIf="canShowInvite" class="popContainer" (click)="hideInvite()">
+      <div class="poplist" (click)="$event.stopPropagation()">
+        <!-- (input)="searchInput($event)" -->
+          <div class="input-group">
+            <div class="mr-2">
+              <input type="search" id="form1" class="form-control bg-light" placeholder="Email" [(ngModel)]="InviteEmail"/>
+            </div>
+            <button  class="btn bg-primary" (click)="ClubInvite()">Invite</button>
+          </div>
+      </div>
+    </div>
+
+<!-- Doubles Invite -->
+<div *ngIf="showDoublesInvite" class="popContainer" (click)="hideInvite()">
+<div class="poplist" (click)="$event.stopPropagation()">
+    <div class="input-group">
+      <div class="mr-2">
+        <input type="search" id="form1" class="form-control searchBox bg-light" placeholder="Search" (input)="searchInput($event)"/>
+      </div>
+      <button  class="btn bg-primary">Search</button>
+    </div>
+    <ul  class="searchList" style="background-color: grey;">
+      <li *ngFor="let member of filterItems" class="d-flex justify-content-between">{{member.email}} 
+        <div>
+          <button class="px-2 py-1 searchBtn" (click)="AddTeam(member)">Add</button>
+          <button class="px-2 py-1 searchBtn" (click)="inviteDouble(member)">Invite</button>
+        </div>
+      </li>
+    </ul>
+</div>
+</div>
+
+</body>

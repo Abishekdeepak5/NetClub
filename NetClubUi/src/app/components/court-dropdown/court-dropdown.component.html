@@ -1,0 +1,14 @@
+<!-- <div class="search-dropdown">
+    <input type="text" [(ngModel)]="searchTerm" (keyup)="filterItems()" placeholder="Search..." class="text-dark form-control">
+    <ul>
+      <li *ngFor="let item of filteredItems" (click)="selectItem(item)">{{item.court_name}}</li>
+    </ul>
+  </div>
+   -->
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Select Court</label>
+    <input type="text" [(ngModel)]="searchTerm" (keyup)="filterItems()" placeholder="Search..." class="text-dark form-control">
+    <select multiple class="form-control" id="exampleFormControlSelect2" *ngIf=" filteredItems.length>0  ">
+        <option *ngFor="let item of filteredItems" (click)="selectItem(item)">{{item.court_name}}</option>
+     </select>
+  </div>

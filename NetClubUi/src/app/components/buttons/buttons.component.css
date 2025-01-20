@@ -1,0 +1,66 @@
+.main {
+   /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding to the container */
+    position: relative;
+    z-index: 1;  /* Set the position to relative to position the buttons */
+}
+
+.btn,
+.btn1{
+    position: absolute;
+    top: 0px; /* Adjust the top position as needed */
+    font-family: sans-serif;
+    border: 2px solid black;
+    border-radius: 20px;
+    animation: example 1s infinite;
+    font-size: 16px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 8px 14px;
+    cursor: pointer;
+    z-index: 2; /* Ensure buttons are above other elements */
+}
+/*.btn {
+    padding: 3px 5px;
+	right: 180px;
+}
+
+.btn1 {
+    border: 2px solid rgb(49, 179, 37);
+    padding: 5px 5px;
+    right: 90px;  Adjust the right position as needed */
+.btn {
+    right: 120px;
+}
+
+.btn1 {
+    right: 60px;
+}
+
+.btn2 {
+    right: 10px;
+}
+
+.btn1:hover, .btn:hover {
+    background-color: rgb(75, 73, 73);
+}
+@media screen and (max-width: 1260px) {
+    .btn{
+     right: 110px;
+    }
+    .btn1{
+        right: 20px;
+       }
+}
+@media screen and (max-width: 1440px) {
+    .btn {
+        right: 130px;
+    }
+
+    .btn1 {
+        right: 40px;
+    } 
+}

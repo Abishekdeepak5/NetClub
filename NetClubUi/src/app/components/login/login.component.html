@@ -1,0 +1,31 @@
+
+  <div class="Container" *ngIf="!loginSuccess">
+    <form (ngSubmit)="LogIn(loginUser)">
+      <p-card header="Log In" [style]="{width: '430px'}">
+       
+        <div class="field">
+          <label class="text" for="email">Email</label><br>
+          <input id="email" pInputText class="input" type="email" name="name" placeholder="Enter your Email"
+                 [(ngModel)]="loginUser.email" [readonly]="!emailmodel.canEditEmail" required>
+                 <!-- && !loginUser.email.includes('@gmail.com') -->
+          <!-- <div *ngIf="loginUser.email" class="error-message">
+            <span class="error-text">Please enter a valid mail address.</span>
+          </div> -->
+        </div>
+  
+        <div class="field">
+          <label class="text" for="password">Password</label><br>
+          <input id="password" pInputText class="input" type="password" name="password"
+                 placeholder="Enter your password" [(ngModel)]="loginUser.password" required>
+        </div>
+         
+        <br>
+        <button value="Log In" class="registerBtn" >
+          Log In
+        </button>
+        <div class="mt-2">
+          Are you new to this?<a routerLink="/register" class="loginLink">Register</a>
+        </div>
+      </p-card>
+    </form>
+  </div>

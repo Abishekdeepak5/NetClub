@@ -1,0 +1,268 @@
+<body>
+  <app-sidenavbar (selectedNavItemEvent)="selectedNavItem($event)">
+  </app-sidenavbar>
+  <div class="main">
+    <div class="d-flex justify-content-between mx-3">
+      <div class="text-light">League: {{league.name}}</div>
+      <div class="text-light">Club: {{clubDetail?.club_name}}</div>
+    </div>
+    <div class="navButtons">
+      <div>
+        <button (click)="displayLeague()" class="btn navBtn">League</button>
+        <button (click)="displayMyMatch()" class="btn navBtn">My Match</button>
+        <button (click)="displayMatch()" class="btn navBtn">Match Details</button>
+        <button (click)="displayStanding()" class="btn navBtn">Standings</button>
+      </div>
+    <div class="d-flex" >
+      <button *ngIf="isMyClub" (click)="createSchedule()" id="schedule" class="btn bg-success text-light me-2">Schedule</button>
+      <button (click)="showInvite()" class="btn bg-success text-light me-2">Invite</button>
+    </div>
+    </div>
+
+    <ng-container *ngIf=" selectedtable=='League' ">
+      <table class="custom-table2">
+        <thead>
+          <tr data-id="3">
+            <th></th>
+            <th>Start</th>
+            <th>End</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="2">
+            <td style="text-align: left;">League</td>
+            <td>{{league.start_date|dateformat}}</td>
+            <td>{{league.end_date|dateformat}}</td>
+          </tr>
+          <tr data-id="2">
+            <td style="text-align: left;">Registration</td>
+            <td>{{league.registration_start_date|dateformat}}</td>
+            <td>{{league.registration_end_date|dateformat}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <!-- </div> -->
+
+    <!-- <div class="main"> -->
+    <ng-container *ngIf=" selectedtable=='League' ">
+      <table class="custom-table1">
+        <thead >
+          <tr data-id="3" style="text-align:left;">
+            <th >Team</th>
+            <th>Points</th>
+            <th>Ratings</th>
+            <th>Home court</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams" data-id="2">
+            <td>{{ team.team_name }}</td>
+            <td>{{ team.points}}</td>
+            <td>{{ team.rating}}</td>
+            <td>{{ team.court_name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    
+    <ng-container *ngIf="selectedtable=='myMatch'">
+      <table class="custom-table2">
+        <thead>
+          <tr data-id="3">
+            <th>Oppoent</th>
+            <th>Venue</th>
+            <th>Start</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let match of myMatches" data-id="2">
+            <div *ngIf="match.isTeamOrder; then sameTeamOrder else changeTeamOrder"></div>
+            <ng-template #sameTeamOrder class="d-flex">
+              <td>{{ match.team2.team_name}}</td>
+            </ng-template>
+
+            <ng-template #changeTeamOrder class="d-flex">
+              <td>{{ match.team1.team_name}}</td>
+            </ng-template>
+
+            <td>{{ match.venue}}</td>
+            <td *ngIf="match.winning_team!=0; else elseBlock">Finished</td>
+                <ng-template #elseBlock>
+                    <!-- <td><button class="leaguejoinBtn btn text-light" (click)="joinLeague(league); $event.stopPropagation()">join</button></td> -->
+                    <td><button class="btn btn-primary text-light px-2 py-0 m-0" (click)="startMatch(match);$event.stopPropagation()">Start</button></td>
+        
+                  </ng-template>
+            <!-- <td><button class="btn btn-primary text-light px-2 py-0 m-0" (click)="startMatch(match)">Start</button></td> -->
+          </tr>
+        </tbody>
+      </table>
+
+    </ng-container>
+
+
+    <ng-container *ngIf="selectedtable=='Schedule'">
+      <table class="custom-table3">
+        <thead>
+          <tr data-id="3">
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Venue</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let match of matches" data-id="2">
+            <td>{{ match.team1.team_name }}</td>
+            <td>{{ match.team2.team_name}}</td>
+            <td>{{ match.venue}}</td>
+            <td><button type="button" (click)="this.startMatch(match)"
+                class="btn btn-dark  match-start-button">start</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </ng-container> 
+    <ng-container *ngIf=" selectedtable=='Match' ">
+      <table class="custom-table4">
+        <thead>
+          <tr data-id="3">
+            <th style="text-align: center;">Team</th>
+            <th *ngFor="let week of weeks">Week {{week}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team_member of teamMember; let i=index " data-id="2">
+            <td>{{team_member}}</td>
+            <td *ngFor="let team of weeks; let j=index ">
+              <div class="tablecell">
+                <span>{{allMatch[(i*numberOfWeek)+j].team2name}}</span>
+                <div *ngIf="allMatch[(i*numberOfWeek)+j].isChangeOrder; then changeOrder else sameOrder"></div>
+                <ng-template #sameOrder class="d-flex">
+                  <div class="d-flex">
+                    <span *ngFor="let score of allMatch[(i*numberOfWeek)+j].sets"  class="scoreDetail me-2">
+                          {{score.team1score}}-{{score.team2score}}
+                      </span>
+                  </div>
+                
+                  </ng-template>
+                <ng-template #changeOrder  class="d-flex">
+                  <div class="d-flex">
+                    <span *ngFor="let score of allMatch[(i*numberOfWeek)+j].sets" class="scoreDetail me-2">
+                      {{score.team2score}}-{{score.team1score}}
+                  </span>
+                  </div>
+                </ng-template>
+
+
+                <div class="d-flex">
+                  <div class="scoreTitle me-1">Point:
+                    <span class="scoreDetail">{{allMatch[(i*numberOfWeek)+j].point}}</span>
+                  </div>
+                  <div class="scoreTitle">Rating:<span class="scoreDetail">{{allMatch[(i*numberOfWeek)+j].rating}}</span></div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+<!--    <ng-container *ngIf=" selectedtable=='Match' ">
+      <table class="custom-table4">
+        <thead>
+          <tr data-id="3">
+            <th style="text-align: center;">Team</th>
+            <th *ngFor="let week of weeks">Week {{week}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team_member of teamMember; let i=index " data-id="2">
+            <td>{{team_member}}</td>
+            <td *ngFor="let team of weeks">
+              <div class="tablecell">
+                <span>{{allMatch[((team-1)*numberOfteam)+i].team2name}}</span>
+                <div *ngIf="allMatch[((team-1)*numberOfteam)+i].isChangeOrder; then changeOrder else sameOrder"></div>
+                <ng-template #sameOrder class="d-flex">
+                  <div class="d-flex">
+                    <span *ngFor="let score of allMatch[((team-1)*numberOfteam)+i].sets"  class="scoreDetail me-2">
+                          {{score.team1score}}-{{score.team2score}}
+                      </span>
+                  </div>
+                
+                  </ng-template>
+                <ng-template #changeOrder  class="d-flex">
+                  <div class="d-flex">
+                    <span *ngFor="let score of allMatch[((team-1)*numberOfteam)+i].sets" class="scoreDetail me-2">
+                      {{score.team2score}}-{{score.team1score}}
+                  </span>
+                  </div>
+                </ng-template>
+
+
+                <div class="d-flex">
+                  <div class="scoreTitle me-1">Point:
+                    <span class="scoreDetail">{{allMatch[((team-1)*numberOfteam)+i].point}}</span>
+                  </div>
+                  <div class="scoreTitle">Rating:<span class="scoreDetail">{{allMatch[((team-1)*numberOfteam)+i].rating}}</span></div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  -->
+    <!-- standing -->
+    
+    <ng-container *ngIf=" selectedtable=='standing' ">
+      <table class="custom-table">
+        <thead>
+          <tr data-id="3">
+            <th>Team</th>
+            <th *ngFor="let week of weeks">Week {{week}}</th>
+            <th>Avg Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of standingTeam; let i=index " data-id="2">
+            <td>{{team.team_name}}</td>
+            <td *ngFor="let week of weeks; let j=index">
+              <div class="tablecell">
+                <div class="d-flex">
+                  <!-- scoreDetail -->
+                  <div class="scoreTitle me-1">Point
+                    <div class="scoreDetail">{{standing[(i*numberOfWeek)+j].point}}</div>
+                  </div>
+                  <div class="scoreTitle">Rating <div class="scoreDetail">{{standing[(i*numberOfWeek)+j].rating}}</div></div>
+                </div>
+              </div>
+            </td>
+            <td>{{team.average_rating}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+</div>
+
+<!-- Pop up search -->
+
+  <div *ngIf="canShowInvite" class="popContainer" (click)="hideInvite()">
+    <div class="poplist" (click)="$event.stopPropagation()">
+
+      <div class="input-group">
+        <div class="mr-2">
+          <input type="search" id="form1" class="form-control searchBox" placeholder="Search"
+            (input)="searchInput($event)" />
+        </div>
+        <button class="btn bg-primary">Search</button>
+      </div>
+      <ul class="searchList">
+        <li *ngFor="let member of filterItems">{{member.email}} <button class="px-2 py-1 searchBtn"
+            (click)="inviteLeague(member)">Invite</button></li>
+      </ul>
+    </div>
+  </div>
+</body>

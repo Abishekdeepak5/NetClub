@@ -1,0 +1,147 @@
+body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+p-card{
+  padding: 0;
+}
+
+.field {
+    margin-bottom: 1rem;
+   
+  }
+
+  .registerBtn{
+        background-color: #007bff; 
+         color: #fff;
+        padding: 5px 5px; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.3em; 
+        font-weight: 600;
+  }
+  .registerBtn:disabled {
+    background-color: #d1d1d1; 
+    color: #666; 
+    cursor: not-allowed;
+  }
+  .label {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input {
+    padding: 0.5rem;
+    border: 1px solid #ccc ;
+    border-radius: 4px;
+  }
+  
+  .small-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  .loginLink{
+    color: darkcyan;
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 3px;
+
+}
+@media (max-width:320px)  {
+  .Container {
+    margin-top: 30%;
+    display: flex;
+    transform: scale(0.7,0.6);
+    -webkit-transform: scale(0.7,0.6);
+    -moz-transform: scale(0.7,0.6);
+    -ms-transform: scale(0.7,0.6);
+    -o-transform: scale(0.7,0.6);
+    justify-content: center;
+}
+    .mt-2{
+      text-align: center;
+    }
+  .input {
+    width: 95%; 
+  }
+  .registerBtn {
+    width: 95%;
+  }
+}
+@media (min-width:375px) {
+  .Container {
+    margin-top: 50%;
+    left: 40%;
+    transform: scale(0.7,0.7);
+    display: flex;
+    justify-content: center;
+    -webkit-transform: scale(0.7,0.7);
+    -moz-transform: scale(0.7,0.7);
+    -ms-transform: scale(0.7,0.7);
+    -o-transform: scale(0.7,0.7);
+}
+  .input {
+    width: 90%;  
+  }
+  .registerBtn {
+    width: 90%;
+  }
+}
+@media (min-width:768px)  {
+  .Container {
+    margin-top:20%;
+    left: 40%;
+    transform: scale(0.9,0.8);
+    display: flex;
+    justify-content: center;
+    }
+    .mt-2{
+      text-align: center;
+    }
+  .input {
+    width: 90%; 
+  }
+  .registerBtn {
+    width:90%;
+  }
+}
+@media (min-width:1024px)
+{
+  .Container{
+    margin-top:7% ;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .registerBtn{
+    width: 100%;
+  }
+  .input{
+    width: 100%;
+  }
+}
+@media (min-width:1440px)
+{
+  .Container{
+    margin-top: 10%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .registerBtn{
+    width: 100%;
+  }
+  .input{
+    width: 100%;
+  }
+}
+
+.error-message {
+    color: red; 
+}
+

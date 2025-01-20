@@ -1,0 +1,31 @@
+.search-dropdown {
+    position: relative;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: #fff;
+    width: calc(100% - 10px);
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  li:hover {
+    background-color: #f0f0f0;
+  }
+  

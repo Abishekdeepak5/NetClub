@@ -1,0 +1,99 @@
+<div class="Container">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <p-card header="Register" class="header">
+
+            <div class="field">
+                <label for="first_name">First name</label>
+                <input type="text" pInputText class="input" formControlName="first_name" name="first_name"
+                    placeholder="Enter your first_name" />
+
+                <small *ngIf="first_name.invalid && (first_name.dirty||first_name.touched)" class="small-error">
+                    <div *ngIf=" !first_name.errors?.['required']">*First name should be valid</div>
+                    <div *ngIf="first_name.errors?.['required']">*First name is required</div>
+
+                </small>
+            </div>
+ 
+            <div class="field">
+                <label for="last_name">Last name</label>
+                <input type="text" pInputText formControlName="last_name" class="input" name="last_name"
+                    placeholder="Enter your last_name" />
+
+                <small *ngIf="last_name.invalid && (last_name.dirty||last_name.touched)" class="small-error">
+                    <div *ngIf="last_name.errors?.['required']">*Last name is required</div>
+
+                    <div *ngIf="!last_name.errors?.['required']">Last name should be valid</div>
+                </small>
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="text" pInputText formControlName="email" class="input" name="email" placeholder="Enter your email" [readonly]="!emailmodel.canEditEmail"/>
+                <small *ngIf="email.invalid && (email.dirty || email.touched)" class="small-error">
+                <div *ngIf="email.errors?.['required']">* Email is required</div>
+                <div *ngIf="email.errors?.['pattern']">* Email should be a valid Gmail address (ending with @gmail.com)</div>
+                </small>
+            </div>
+            <div class="field">
+                <label for="password">password</label>
+                <input type="password" pInputText formControlName="password" class="input" name="password"
+                    placeholder="Enter your password" />
+                <small *ngIf="password.invalid && (password.dirty || password.touched)" class="small-error">
+                    <div *ngIf="password.errors?.['required']">password is required</div>
+                    <div *ngIf="password.errors?.['minlength']">password should be at least 6 characters</div>
+                </small>
+            </div>
+            <div class="field">
+                <label for="confirmpassword">Confirm password</label>
+                <input type="password" pInputText formControlName="confirmpassword" class="input" name="confirmpassword"
+                    placeholder="Confirm password" />
+                <small
+                    *ngIf="isConfirmpasswordError(registerForm) && (confirmpassword.dirty || confirmpassword.touched)"
+                    class="small-error">
+                    passwords not match
+                </small>
+            </div>
+
+            <div class="field">
+                <label for="phone_number">Phone number:</label>
+                <input type="text" id="phone_number" class="input" name="phone_number"
+       placeholder="Phone number" formControlName="phoneNumber"  (input)="formatPhoneNumber($event)">
+                <small *ngIf="showPhoneNumberError" class="small-error">Phone number must be 10 digits long</small>
+          </div>
+            <div class="field">
+                <small *ngIf="errorMessage" class="small-error">
+                    {{errorMessage}}
+                </small>
+            </div>
+
+            <div class="field">
+                <label for="gender" class="gender-option">Gender: </label>
+
+                <label for="male"> Male </label>
+                <input type="radio" id="male" formControlName="gender" value="male" class="gender-option">
+            
+                <label for="female"> Female </label>
+                <input type="radio" id="female" formControlName="gender" value="female"> 
+            
+                <small *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="small-error">
+                    <div *ngIf="gender.errors?.['required']">* Select gender</div>
+                </small>
+            </div>
+
+            <div class="field">
+                <label for="dob">Date of Birth: </label>
+                <input type="date" id="dob" formControlName="dob">
+            
+                <small *ngIf="dob.invalid && (dob.dirty || dob.touched)" class="small-error">
+                    <div *ngIf="dob.errors?.['required']">* Select DOB</div>
+                </small>
+            </div>
+            <!-- <button value="Register" class="registerBtn" [disabled]="registerForm.invalid"> -->
+                <!-- <button class="registerBtn" (click)="checkError()">Hello</button> -->
+            <input type="submit" value="Register" class="registerBtn" [disabled]="registerForm.invalid">
+            <div class="mt-2" style="text-align: center;">
+                Already a member?<a routerLink="/login" class="loginLink">Login</a>
+            </div>
+            <!-- <p>{{jsonData}}</p> -->
+        </p-card>
+    </form>
+</div>
